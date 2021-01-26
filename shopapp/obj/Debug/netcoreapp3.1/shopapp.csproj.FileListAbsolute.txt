@@ -79,3 +79,4 @@ C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\Raz
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PieCard.cshtml.g.cs
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Carousel.cshtml.g.cs
+C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\Razor\Views\ShoppingCart\Index.cshtml.g.cs

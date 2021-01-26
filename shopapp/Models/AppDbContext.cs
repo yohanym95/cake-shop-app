@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shopapp.Models
 {
-    public class AppDbContext  : DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -15,6 +15,7 @@ namespace shopapp.Models
 
         public DbSet<Pie> Pies { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ShoppingCartItem> ShoppinCartItems {get; set;}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
