@@ -1,9 +1,11 @@
-﻿using System;
+﻿using shopapp.Models;
+using shopapp.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shopapp.Models
+namespace shopapp.Repositories
 {
     public class MockCateforyRepository : ICategoryRepository
     {

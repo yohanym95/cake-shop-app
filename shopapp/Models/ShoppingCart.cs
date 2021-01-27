@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -37,6 +38,7 @@ namespace shopapp.Models
 
         public void AddToCart(Pie pie, int amount)
         {
+            Debug.WriteLine(ShoppingCartId);
             var shoppingCartItem =
                     _appDbContext.ShoppinCartItems.SingleOrDefault(
                         s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
@@ -47,7 +49,7 @@ namespace shopapp.Models
                 {
                     ShoppingCartId = ShoppingCartId,
                     Pie = pie,
-                    Amount = 1
+                    Amount = 1 
                 };
 
                 _appDbContext.ShoppinCartItems.Add(shoppingCartItem);

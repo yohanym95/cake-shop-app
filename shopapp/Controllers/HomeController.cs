@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using shopapp.Models;
+using shopapp.Repositories;
 using shopapp.ViewModels;
 using System;
 using System.Collections.Generic;

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using shopapp.Models;
+using shopapp.Repositories;
 using shopapp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,7 +18,7 @@ namespace shopapp.Controllers
         public ShoppingCartController(IPieRepository pieRepository, ShoppingCart shoppingCart)
         {
             _pieRepository = pieRepository;
-            shoppingCart = shoppingCart;
+            _shoppingCart = shoppingCart;
         }
 
         public ViewResult Index()
@@ -35,11 +37,17 @@ namespace shopapp.Controllers
 
         public RedirectToActionResult AddToShoppingCart(int pieId)
         {
+            Debug.WriteLine(pieId);
             var selectedPie = _pieRepository.AllPies.FirstOrDefault(p => p.PieId == pieId);
-
+            Debug.WriteLine(selectedPie.PieId.ToString());
+            Debug.WriteLine(selectedPie.Category.ToString());
             if (selectedPie != null)
             {
                 _shoppingCart.AddToCart(selectedPie, 1);
+            }
+            else
+            {
+                
             }
             return RedirectToAction("Index");
         }
