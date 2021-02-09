@@ -8,20 +8,22 @@
     <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <link href="~/Content/site.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header">
+            @*<div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            </div>
+            </div>*@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <partial name="_LoginPartial" />
                 <ul class="nav navbar-nav">
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                     @await Component.InvokeAsync("CategoryMenu")
@@ -29,6 +31,7 @@
                     @await Component.InvokeAsync("ShoppingCartSummery")
                 </ul>
             </div>
+
         </div>
     </nav>
 
@@ -44,5 +47,6 @@
             </div>
         </div>
     </div>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

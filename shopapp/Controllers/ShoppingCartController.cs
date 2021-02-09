@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using shopapp.Models;
 using shopapp.Repositories;
 using shopapp.ViewModels;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace shopapp.Controllers
 {
+    [Authorize(Roles ="Basic")]
     public class ShoppingCartController : Controller
     {
         private readonly IPieRepository _pieRepository;

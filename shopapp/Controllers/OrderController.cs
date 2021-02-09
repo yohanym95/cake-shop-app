@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using shopapp.Models;
 using shopapp.Repositories;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace shopapp.Controllers
 {
+    [Authorize(Roles ="Basic")]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;

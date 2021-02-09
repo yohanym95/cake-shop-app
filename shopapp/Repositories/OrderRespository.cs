@@ -1,4 +1,5 @@
-﻿using shopapp.Models;
+﻿using shopapp.Data;
+using shopapp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

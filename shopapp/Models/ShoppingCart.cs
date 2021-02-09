@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using shopapp.Data;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
