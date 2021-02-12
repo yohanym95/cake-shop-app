@@ -17,11 +17,13 @@ namespace shopapp.Controllers
     {
         private readonly ICakeRepository _cakeRepository;
         private readonly IPieRepository _pieRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CakeController(ICakeRepository cakeRepository, IPieRepository pieRepository)
+        public CakeController(ICakeRepository cakeRepository, IPieRepository pieRepository, ICategoryRepository categoryRepository)
         {
             _cakeRepository = cakeRepository;
             _pieRepository = pieRepository;
+            _categoryRepository = categoryRepository;
         }
         public ViewResult Index()
         {
@@ -36,22 +38,6 @@ namespace shopapp.Controllers
                 Pies = pies,
                 CurrentCategory = currentCategory
             });
-        }
-
-        public IActionResult AddPies(Pie pie)
-        {
-            if (ModelState.IsValid)
-            {
-                _cakeRepository.CreateCake(pie);
-                return RedirectToAction("AddComplete");
-            }
-            return View(pie);
-        }
-
-        public IActionResult AddComplete()
-        {
-            ViewBag.CheckoutCompleteMessage = "Successfully Added the pie";
-            return View();
         }
 
         public ViewResult List()
@@ -73,6 +59,7 @@ namespace shopapp.Controllers
         {
             var pie = _pieRepository.GetPieById(pieId);
             PieViewModel pieModel;
+
             if (pie.PieId != 0)
             {
                 pieModel = new PieViewModel
@@ -98,45 +85,39 @@ namespace shopapp.Controllers
                 return Index();
             }
 
-            return View(pieModel);
+            var categories = _categoryRepository.AllCategories.OrderBy(c => c.CategoryName);
+            CakeViewModel cakeViewModel = new CakeViewModel();
+            cakeViewModel.Categories = categories;
+
+            cakeViewModel.PieViewModel = pieModel;
+
+            return View(cakeViewModel);
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Manage(PieViewModel pieViewModel)
+        public async Task<IActionResult> Manage(CakeViewModel cakeViewModel)
         {
             if (ModelState.IsValid)
             {
-                
-
-
-                if (Request.Form.Files.Count > 0)
+                var pieDetails = _pieRepository.GetPieById(cakeViewModel.PieViewModel.PieId);
+                if (Request.Form.Files.Count >0)
                 {
                     IFormFile file = Request.Form.Files.FirstOrDefault();
-                    using (var dataStream = new MemoryStream())
-                    {
-                        await file.CopyToAsync(dataStream);
-                        pieViewModel.PiePictureByte = dataStream.ToArray();
-                    }                 
 
+                    if(file != null)
+                    {
+                        using (var dataStream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(dataStream);
+                            var picBytes = dataStream.ToArray();
+                            cakeViewModel.PieViewModel.PiePictureByte = picBytes;
+                           
+                        }
+                    }                
                 }
 
-                var pie = new Pie
-                {
-                    PieId = pieViewModel.PieId,
-                    Name = pieViewModel.Name,
-                    Price = pieViewModel.Price,
-                    ShortDescription = pieViewModel.ShortDescription,
-                    LongDescription = pieViewModel.LongDescription,
-                    InStock = pieViewModel.InStock,
-                    IsPieOfTheWeek = pieViewModel.IsPieOfTheModel,
-                    PictureByte = pieViewModel.PiePictureByte,
-                    ImageUrl = pieViewModel.PiePicture,
-                    CategoryId = pieViewModel.CategoryId
-                };
-
-                var result = _cakeRepository.ModifyCake(pie);
-
+                var result = _cakeRepository.ModifyCake(cakeViewModel);
                 if (!result)
                 {
                     ModelState.AddModelError("", "Try again Later");
@@ -151,13 +132,17 @@ namespace shopapp.Controllers
 
         public ViewResult Add()
         {
-            return View();
+            var categories = _categoryRepository.AllCategories.OrderBy(c => c.CategoryName);
+
+            CakeViewModel cakeViewModel = new CakeViewModel();
+            cakeViewModel.Categories = categories;
+
+            return View(cakeViewModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(PieViewModel pieView) 
+        public async Task<IActionResult> Add(CakeViewModel cakeViewModel) 
         {
-
             if (ModelState.IsValid)
             {
                 if (Request.Form.Files.Count > 0)
@@ -166,22 +151,21 @@ namespace shopapp.Controllers
                     using (var dataStream = new MemoryStream())
                     {
                         await file.CopyToAsync(dataStream);
-                        pieView.PiePictureByte = dataStream.ToArray();
+                        cakeViewModel.PieViewModel.PiePictureByte = dataStream.ToArray();
                     }
 
                     var pie = new Pie
                     {
-                        Name = pieView.Name,
-                        ShortDescription = pieView.ShortDescription,
-                        LongDescription = pieView.LongDescription,
-                        Price = pieView.Price,
-                        PictureByte = pieView.PiePictureByte,
-                        IsPieOfTheWeek = pieView.IsPieOfTheModel,
-                        InStock = pieView.InStock,
-                        CategoryId = 1
+                        Name = cakeViewModel.PieViewModel.Name,
+                        ShortDescription = cakeViewModel.PieViewModel.ShortDescription,
+                        LongDescription = cakeViewModel.PieViewModel.LongDescription,
+                        Price = cakeViewModel.PieViewModel.Price,
+                        PictureByte = cakeViewModel.PieViewModel.PiePictureByte,
+                        IsPieOfTheWeek = cakeViewModel.PieViewModel.IsPieOfTheModel,
+                        InStock = cakeViewModel.PieViewModel.InStock,
+                        CategoryId = cakeViewModel.PieViewModel.CategoryId
 
                     };
-
                     var result =  _cakeRepository.CreateCake(pie);
                     if (result)
                     {
@@ -195,7 +179,7 @@ namespace shopapp.Controllers
                 }
 
             }
-            return View(pieView);
+            return View(cakeViewModel);
         }
 
         public IActionResult AddingComplete()

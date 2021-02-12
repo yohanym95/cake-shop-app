@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using shopapp.Data;
 using shopapp.Models;
+using shopapp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,10 +13,12 @@ namespace shopapp.Repositories
     public class CakeRepository : ICakeRepository
     {
         private readonly AppDbContext _appDbContext;
+        private readonly IPieRepository _pieRepository;
 
-        public CakeRepository(AppDbContext appDbContext)
+        public CakeRepository(AppDbContext appDbContext, IPieRepository pieRepository)
         {
             _appDbContext = appDbContext;
+            _pieRepository = pieRepository;
         }
         public  bool CreateCake(Pie pie)
         {
@@ -33,12 +36,26 @@ namespace shopapp.Repositories
             }
         }
 
-        public bool ModifyCake(Pie pie)
+        public bool ModifyCake(CakeViewModel cakeViewModel)
         {
             //  var pies = _appDbContext.Pies.Include(c => c.Category).FirstOrDefault(p => p.PieId == pie.PieId);
-            if(pie != null)
+            if(cakeViewModel.PieViewModel.PieId != 0)
             {
-                _appDbContext.Pies.Update(pie);
+                var pie = _appDbContext.Pies.FirstOrDefault(P => P.PieId == cakeViewModel.PieViewModel.PieId);
+
+                pie.Name = cakeViewModel.PieViewModel.Name;
+                pie.CategoryId = cakeViewModel.PieViewModel.CategoryId;
+                
+                pie.ShortDescription = cakeViewModel.PieViewModel.ShortDescription;
+                pie.LongDescription = cakeViewModel.PieViewModel.LongDescription;
+                pie.InStock = cakeViewModel.PieViewModel.InStock;
+                pie.IsPieOfTheWeek = cakeViewModel.PieViewModel.IsPieOfTheModel;
+                
+                if(cakeViewModel.PieViewModel.PiePictureByte != null)
+                {
+                    pie.PictureByte = cakeViewModel.PieViewModel.PiePictureByte;
+                }
+
                 _appDbContext.SaveChanges();
                 return true;
             }
@@ -46,6 +63,7 @@ namespace shopapp.Repositories
             {
                 return false;
             }
+            
         }
     }
 }

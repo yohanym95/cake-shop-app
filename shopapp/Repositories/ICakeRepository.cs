@@ -1,4 +1,5 @@
 ﻿using shopapp.Models;
+using shopapp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace shopapp.Repositories
     {
         bool CreateCake(Pie pie);
 
-        bool ModifyCake(Pie pie);
+        bool ModifyCake(CakeViewModel cakeViewModel);
     }
 }

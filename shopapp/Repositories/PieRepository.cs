@@ -35,7 +35,7 @@ namespace shopapp.Repositories
 
         public Pie GetPieById(int pieId)
         {
-            return _appDbContext.Pies.FirstOrDefault(P => P.PieId == pieId);
+            return _appDbContext.Pies.AsNoTracking().FirstOrDefault(P => P.PieId == pieId);
         }
     }
 }
