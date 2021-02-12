@@ -182,6 +182,16 @@ namespace shopapp.Controllers
             return View(cakeViewModel);
         }
 
+        public IActionResult DeletePie(int pieId)
+        {
+            if(pieId != 0)
+            {
+                var result = _cakeRepository.DeleteCake(pieId);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public IActionResult AddingComplete()
         {
             ViewBag.CheckoutCompleteMessage = "Successfully Added the Pies!";

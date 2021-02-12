@@ -243,6 +243,7 @@ namespace shopapp.Data
             {
                 entity.ToTable("UserTokens");
             });
+
         }
     }
 }

@@ -12,5 +12,7 @@ namespace shopapp.Repositories
         bool CreateCake(Pie pie);
 
         bool ModifyCake(CakeViewModel cakeViewModel);
+
+        bool DeleteCake(int pieId);
     }
 }

@@ -65,5 +65,16 @@ namespace shopapp.Repositories
             }
             
         }
+
+        public bool DeleteCake(int pieId)
+        {
+            var pie = _appDbContext.Pies.Find(pieId);
+            var shoppingItems = _appDbContext.ShoppinCartItems.Where(o => o.Pie.PieId == pieId).ToList();
+            _appDbContext.ShoppinCartItems.RemoveRange(shoppingItems);
+            _appDbContext.Pies.Remove(pie);
+            _appDbContext.SaveChanges();
+            return true;
+            
+        }
     }
 }
