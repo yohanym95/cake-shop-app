@@ -27,5 +27,6 @@ namespace shopapp.ViewModels
         public bool InStock { get; set; }
         [Display(Name="Notes")]
         public string Notes { get; set; }
+        public int CategoryId { get; set; }
     }
 }

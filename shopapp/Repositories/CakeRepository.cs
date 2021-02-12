@@ -35,10 +35,8 @@ namespace shopapp.Repositories
 
         public bool ModifyCake(Pie pie)
         {
-            Debug.WriteLine(pie.PieId);
-            var pies = _appDbContext.Pies.Include(c => c.Category).FirstOrDefault(p => p.PieId == pie.PieId);
-            //Debug.WriteLine(pies.PieId);
-            if(pies.Name == pie.Name)
+            //  var pies = _appDbContext.Pies.Include(c => c.Category).FirstOrDefault(p => p.PieId == pie.PieId);
+            if(pie != null)
             {
                 _appDbContext.Pies.Update(pie);
                 _appDbContext.SaveChanges();

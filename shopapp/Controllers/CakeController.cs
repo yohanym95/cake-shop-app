@@ -86,10 +86,11 @@ namespace shopapp.Controllers
                     PiePictureByte = pie.PictureByte,
                     IsPieOfTheModel = pie.IsPieOfTheWeek,
                     InStock = pie.InStock,
-                    Notes = pie.Notes
+                    Notes = pie.Notes,
+                    CategoryId = pie.CategoryId
+                    
 
                 };
-                Debug.WriteLine(pie.PieId);
 
             }
             else
@@ -102,11 +103,24 @@ namespace shopapp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Manage(PieViewModel pieViewModel)
+        public async Task<IActionResult> Manage(PieViewModel pieViewModel)
         {
-            Debug.Write(pieViewModel.PieId);
             if (ModelState.IsValid)
             {
+                
+
+
+                if (Request.Form.Files.Count > 0)
+                {
+                    IFormFile file = Request.Form.Files.FirstOrDefault();
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        pieViewModel.PiePictureByte = dataStream.ToArray();
+                    }                 
+
+                }
+
                 var pie = new Pie
                 {
                     PieId = pieViewModel.PieId,
@@ -117,22 +131,22 @@ namespace shopapp.Controllers
                     InStock = pieViewModel.InStock,
                     IsPieOfTheWeek = pieViewModel.IsPieOfTheModel,
                     PictureByte = pieViewModel.PiePictureByte,
-                    ImageUrl = pieViewModel.PiePicture
+                    ImageUrl = pieViewModel.PiePicture,
+                    CategoryId = pieViewModel.CategoryId
                 };
 
-                Debug.WriteLine(pie.PieId);
                 var result = _cakeRepository.ModifyCake(pie);
 
                 if (!result)
                 {
-                    ModelState.AddModelError("","Try again Later");
+                    ModelState.AddModelError("", "Try again Later");
                 }
                 else
                 {
                     return RedirectToAction("AddingComplete");
                 }
             }
-            return View(pieViewModel);
+            return View();
         }
 
         public ViewResult Add()
