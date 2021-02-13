@@ -33,9 +33,21 @@ namespace shopapp.Repositories
             }
         }
 
+        public IEnumerable<string> GetSearchPies(string search)
+        {
+            var pies = _appDbContext.Pies.Where(p => p.Name.Contains(search)).Select(p => p.Name).ToList();
+            return pies;
+        }
+
         public Pie GetPieById(int pieId)
         {
             return _appDbContext.Pies.AsNoTracking().FirstOrDefault(P => P.PieId == pieId);
+        }
+
+        public IEnumerable<Pie> GetSearchPiesSet(string search)
+        {
+            var pies = _appDbContext.Pies.Include(c => c.Category).Where(p => p.Name.ToLower().Contains(search.ToLower()));
+            return pies;
         }
     }
 }

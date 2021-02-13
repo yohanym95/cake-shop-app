@@ -1,10 +1,25 @@
 ﻿@model HomeViewModel
-<partial name="_Carousel" />
 
-<h2>Pies of the week</h2>
-<h4>Our weekly selection - just for you!</h4>
+<div class="col-md-12">
+    <form method="get" asp-controller="Home" asp-action="Search" role="form">
+       <input class="col-md-11 searchBox" type="text" id="searchBox" name="search" placeholder="Enter Pie Name" />
+        @*<input class="col-md-1 searchButton" type="submit" value="Search" />*@
+       <span class="input-group-btn col-md-1">
+          <button class="btn searchButton" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+       </span>
+    </form>
+</div>
 
-<div class="row">
+<div class="col-md-12">
+    <partial name="_Carousel" />
+</div>
+
+<h2 class="col-md-12">Pies of the week</h2>
+<h4 class="col-md-12">Our weekly selection - just for you!</h4>
+
+<div class="row col-md-12">
     @foreach(var pie in Model.PiesOfTheWeek)
     {
         <partial name="_PieCard" model="pie" />

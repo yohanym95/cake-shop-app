@@ -24,5 +24,15 @@ namespace shopapp.Repositories
         {
             return AllPies.FirstOrDefault(p => p.PieId == pieId);
         }
+
+        public IEnumerable<string> GetSearchPies(string search)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Pie> GetSearchPiesSet(string pieName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -11,5 +11,8 @@ namespace shopapp.Repositories
         IEnumerable<Pie> AllPies { get; }
         IEnumerable<Pie> PiesOfTheWeek { get; }
         Pie GetPieById(int pieId);
+        IEnumerable<string> GetSearchPies(string search);
+
+        IEnumerable<Pie> GetSearchPiesSet(string pieName);
     }
 }

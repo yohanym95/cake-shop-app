@@ -1,0 +1,18 @@
+﻿@model SearchViewModel
+
+<div class="col-md-12">
+    <div class="col-md-12">
+        <form method="get" asp-controller="Home" asp-action="Search" role="form">
+            <input class="col-md-10 searchBox" type="text" id="searchBox" name="search" placeholder="Enter Pie Name" />
+            <input class="col-md-1 searchButton" type="submit" value="Search" />
+        </form>
+    </div>
+    <p class="col-md-12">
+        @Model.Count results found for the <b>@Model.Keyword</b>
+    </p>
+
+    @foreach (var pie in Model.Pies)
+    {
+        <partial name="_PieCard" model="pie" />
+    }
+</div>

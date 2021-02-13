@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+
+<ul class="nav nav-pills flex-column" style="margin-left:20px;">
+        @foreach (var category in Model)
+        {
+            @*<li>
+                <button class="btn-primary" style="color:orange; padding:5px; border-radius:10px;">
+                    <a class="" style="color:white;" asp-controller="Pie" asp-action="List"
+                       asp-route-category="@category.CategoryName">@category.CategoryName</a>
+                </button>
+            </li>*@
+        }
+        <li class="divider"></li>
+        <li>
+            <a asp-controller="Pie" asp-action="List">View all pies</a>
+        </li>
+</ul>
