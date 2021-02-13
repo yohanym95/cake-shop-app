@@ -53,6 +53,8 @@ body {
 
 footer {
     margin: 50px 0;
+    
+    
 }
 
 .navbar {
@@ -92,8 +94,8 @@ footer {
 }
 
 .btn {
-    background-color: #fcaeae !important;
-    border-color: #fba1a1 !important;
+    background-color: #fcaeae ;
+    border-color: #fba1a1 ;
 }
 
 .searchBox{
@@ -106,12 +108,7 @@ footer {
 }
 
 .searchButton {
-    margin-bottom: 10px;
-    margin-top: 5px;
     margin-right: 5px;
-    padding:5px;
     border-bottom-style: none;
     color:white;
-    background-color:darkorange;
-    border-color:darkorange;
 }
