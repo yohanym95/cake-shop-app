@@ -1,18 +1,69 @@
-﻿/*!
- * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
- * Copyright 2013-2016 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
- */
+﻿@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap");
 
-body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */ 
-    background-repeat: repeat;
-    font-family: 'Source Sans Pro', sans-serif;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("../Images/cakebg.jpg");
+    background-size: cover;
+}
+.banner .content {
+    text-align: center;
+}
+.banner .content p{
+    color:#fff;
+    font-size:15px;
+}
+.banner .content h2 {
+    font-size: 5em;
+    color: #fff;
+}
+.btn-menu {
+    font-size: 1em;
+    color: #fff;
+    background: #e6982c !important;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    border-color: #e6982c !important;
+}
+.btn-menu:hover {
+    letter-spacing: 6px;
+}
+
+.title {
+    color: #111;
+    font-size: 2em;
+    font-weight: 300;
+    margin-top:5px;
+    margin-bottom:10px;
 }
 
 
+    .title span {
+        color: #e6982c;
+        font-weight: 700;
+        font-size: 1.5em;
+    }
+
 .slide-image {
     width: 100%;
+    height:100%;
 }
 
 .carousel-holder {
@@ -27,12 +78,17 @@ body {
 .caption {
     height: 130px;
     overflow: hidden;
+    text-decoration: none;
 }
-
     .caption h4 {
         white-space: nowrap;
+        text-decoration:none;
     }
-
+.pie-box{
+    cursor : pointer;
+    border: 15px solid #fff;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.4);
+}
 .thumbnail img {
     width: 100%;
 }
@@ -57,13 +113,13 @@ footer {
     
 }
 
-.navbar {
+/*.navbar {
     background-image: none;
 }
-
+*/
 .navbar-inverse {
-    background-color: #a593c2;
-    border-color: #a593c2;
+    background-color: #e6982c;
+    border-color: #e6982c;
 }
 
 .nav.navbar-nav.navbar-right li a {
@@ -112,3 +168,16 @@ footer {
     border-bottom-style: none;
     color:white;
 }
+.img-box{
+    position: relative;
+    min-height:400px;
+}
+
+    .img-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
