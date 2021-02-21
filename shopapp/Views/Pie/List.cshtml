@@ -1,9 +1,36 @@
 ﻿@model PiesListViewModel
+<div class="pieList container" style="align-items:center;">
+    <div class="container">
+        <form method="get" asp-controller="Home" asp-action="Search" role="form">
+            <div class="col-md-12" style="margin-bottom:10px;justify-content:center;display:flex;flex-direction:row">
+                <div class="col-md-10" style="padding:0px;">
+                    <input class="form-control" style="font-size:15px;elevation:higher" type="text" id="searchBox" name="search" placeholder="Enter Pie Name" />
+                </div>
+                <!--@*<input class="col-md-1 searchButton" type="submit" value="Search" />*@-->
+                <span class="input-group-btn" style="margin-left:3px;">
+                    <button class="btn searchButton" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="row col-md-10" style="padding-left:0px;padding-right:0px;">
+        <div class="col-md-2" style="padding-left:0px;padding-right:0px;">
+            @*<h2 class="categoryTitle" >Categories</h2>*@
+            @await Component.InvokeAsync("CategoryMenu")
+        </div>
+        <div class="col-md-8" style="padding-left:0px;padding-right:0px;">
 
-<div class="col-md-12">
-    <h1>@Model.CurrentCategory</h1>
+            <div class="container ">
+                <div class="col-md-12">
+                    <h1 style="padding-left:2px;">@Model.CurrentCategory</h1>
+                </div>
+                @foreach (var pie in Model.Pies)
+                {
+                    <partial name="_PieCard" model="pie" />
+                }
+            </div>
+        </div>
+    </div>
 </div>
-@foreach (var pie in Model.Pies)
-{
-    <partial name="_PieCard" model="pie" />
-}

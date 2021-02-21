@@ -205,3 +205,4 @@ C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\sho
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\shopapp.dll
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\shopapp.pdb
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\shopapp.genruntimeconfig.cache
+C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\shopapp.csprojAssemblyReference.cache

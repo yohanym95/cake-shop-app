@@ -1,5 +1,5 @@
 ﻿@model Pie
-<div class="col-sm-4 col-lg-4 col-md-4 pie-box">
+<div class="col-sm-4 col-lg-4 col-md-4">
     <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">
         <div class="thumbnail" asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">
             @if (Model.ImageThumbnailUrl != null)
@@ -12,7 +12,7 @@
             }
             <div class="caption">
                 <h3 class="pull-right">@Model.Price.ToString("c")</h3>
-                <h3>Model.Name</h3>
+                <h3>@Model.Name</h3>
                 <p>@Model.ShortDescription</p>
             </div>
             <div class="addToCart">

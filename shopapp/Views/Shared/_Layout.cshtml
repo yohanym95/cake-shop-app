@@ -38,7 +38,8 @@
 
                 <ul class="nav navbar-nav">
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    @await Component.InvokeAsync("CategoryMenu")
+                    @*@await Component.InvokeAsync("CategoryMenu")*@
+                    <li><a asp-controller="Pie" asp-action="List">Pies</a></li>
                     <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                     <li><a href="#about">About</a></li>
                     <li></li>
@@ -49,15 +50,14 @@
 
         </div>
     </nav>
-
-    <div class="container-fluid" style="padding:0px;">
+    <div class="container-fluid" style="padding-left:0px;padding-right:0px;">
         <div class="row">
             @*<div class="col-md-3">
-                <p class="lead">
-                    <img class="img-responsive" alt="Bethany's Pie Shop'" src="~/Images/bethanylogo.png" />
-                </p>
-            </div>*@
-            <div class="col-md-12 text-center no-padding">
+                    <p class="lead">
+                        <img class="img-responsive" alt="Bethany's Pie Shop'" src="~/Images/bethanylogo.png" />
+                    </p>
+                </div>*@
+            <div class="col-md-12">
                 @RenderBody()
             </div>
         </div>
