@@ -7,9 +7,9 @@
     font-family: "Poppins", sans-serif;
     scroll-behavior: smooth;
 }
-/*body{
-    padding-top:30px;
-}*/
+body{
+    clear:both;
+}
 .banner {
     position: relative;
     width: 100%;
@@ -207,4 +207,7 @@ footer {
     .categoryTitle img{
         visibility:hidden
     }
+}
+footer {
+    margin:0;
 }
