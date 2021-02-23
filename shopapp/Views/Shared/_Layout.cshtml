@@ -35,17 +35,21 @@
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav pull-left">
+                    <li>
+                        <img class="img-responsive" alt="Pie Shop'" style="max-height:45px;padding-top:10px;" src="~/Images/shoplogo.jpeg" />
+                    </li>
+                </ul>
+                @*<partial name="_LoginPartial" />*@
+                <ul class="nav navbar-nav navbar-right">
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    @*@await Component.InvokeAsync("CategoryMenu")*@
-                    <li><a asp-controller="Pie" asp-action="List">Pies</a></li>
-                    <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                    @*<li><a asp-controller="Pie" asp-action="List">Pies</a></li>*@
                     <li><a href="#about">About</a></li>
-                    <li></li>
+                    <li><a href="#specials">Our Specials</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
                     @await Component.InvokeAsync("ShoppingCartSummery")
                 </ul>
-                <partial name="_LoginPartial" />
+
             </div>
 
         </div>

@@ -1,5 +1,25 @@
 ﻿@model IEnumerable<Category>
 
+<!--<li class="">-->
+    @*<a asp-controller="Pie"
+       asp-action="Index"
+       class="dropdown-toggle" data-toggle="dropdown">Pies<b class="caret"></b></a>*@
+    <!--<ul class="">-->
+        @*@foreach (var category in Model)
+        {*@
+            @*<li>
+                <a asp-controller="Pie" asp-action="List"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>*@
+          
+        @*}*@
+        <!--<li class="divider"></li>
+        <li>
+            <a asp-controller="Pie" asp-action="List">View all pies</a>
+        </li>
+    </ul>
+</li>-->
+
 <div class="categoryTitle">
     <div>
         <p class="lead">
@@ -13,6 +33,10 @@
 
     @foreach (var category in Model)
     {
+        @*<li>
+                <a asp-controller="Pie" asp-action="List"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>*@
         <p>
             <a class="btn btn-primary"
                asp-controller="Pie" asp-action="List"
