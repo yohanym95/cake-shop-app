@@ -124,7 +124,7 @@ footer {
     display:block !important;
 }
 
-nav.sticky{
+.navsticky.sticky{
     background: #111;
     padding : 10px 100px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
@@ -134,10 +134,6 @@ nav.sticky{
     
     z-index: 10000;
 }*/
-
-.nav.nav-change {
-    background-color: transparent !important;
-}
 
 .nav.navbar-nav.navbar-right li a {
     color: white;

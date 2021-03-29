@@ -10,28 +10,17 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     @*<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+    @*<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">*@
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/v4-shims.css" />
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <link href="~/Content/site.css" rel="stylesheet" />
-    @*<script>
-            $(document).ready(function () {
-                $('#searchBox').autocomplete({
-                    source: '/api/pie/search'
-                });
-            });
-        </script>*@
 
-    @*<script type="text/javascript">
-        window.addEventListener("scroll", function () {
-            const header = document.querySelector("nav");
-            header.classList.toggle("sticky", window.scrollY > 0);
-        });
-    </script>*@
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navsticky navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -75,8 +64,9 @@
     </footer>
 
     @RenderSection("Scripts", required: false)
-
-    
+    @*<script>
+        AOS.init();
+    </script>*@ 
 
 </body>
 
