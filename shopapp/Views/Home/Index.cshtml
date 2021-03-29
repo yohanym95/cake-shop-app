@@ -1,6 +1,6 @@
 ﻿@model HomeViewModel
 
-<section class="banner" id="banner">
+<section class="banner container-fluid" id="banner">
     <div class="content container">
         <h2>Always Choose Good</h2>
         <p>
@@ -16,40 +16,43 @@
     </div>
 </section>
 
-<div class="container" id="about" style="margin-top:10px;margin-bottom:10px;">
-    <h2 class="col-md-12 title"><span>A</span>bout US</h2>
-    <div class="row col-md-12">
-        <div class="col-md-6 img-box">
-            <img src="~/Images/cake-aboutus.jpg" alt="" />
-        </div>
-        <div class="col-md-6">
-            <p style="text-align:justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
+<div class="container">
+    <div class="container" id="about" style="margin-top:10px;margin-bottom:10px;">
+        <h2 class="col-md-12 title"><span>A</span>bout US</h2>
+        <div class="row col-md-12">
+            <div class="col-md-6 img-box">
+                <img src="~/Images/cake-aboutus.jpg" alt="" />
+            </div>
+            <div class="col-md-6">
+                <p style="text-align:justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                    ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
 
+        </div>
     </div>
-</div>
 
-<div class="container" id="specials" style="margin-top:10px;margin-bottom:10px;">
-    <h2 class="col-md-12 title">Pies of the <span>W</span>eek</h2>
-    <h4 class="col-md-12 subtitle">Our weekly special - just for you!</h4>
+    <div class="container" id="specials" style="margin-top:10px;margin-bottom:10px;">
+        <h2 class="col-md-12 title">Pies of the <span>W</span>eek</h2>
+        <h4 class="col-md-12 subtitle">Our weekly special - just for you!</h4>
 
-    @foreach (var pie in Model.PiesOfTheWeek)
-    {
-        <partial name="_PieCard" model="pie" />
-    }
+        @foreach (var pie in Model.PiesOfTheWeek)
+        {
+            <partial name="_PieCard" model="pie" />
+        }
+    </div>
+
 </div>

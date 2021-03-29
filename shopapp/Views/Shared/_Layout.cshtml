@@ -22,6 +22,13 @@
                 });
             });
         </script>*@
+
+    @*<script type="text/javascript">
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("nav");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>*@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -40,12 +47,12 @@
                         <img class="img-responsive" alt="Pie Shop'" style="max-height:45px;padding-top:10px;" src="~/Images/shoplogo.jpeg" />
                     </li>
                 </ul>
-                @*<partial name="_LoginPartial" />*@
+                <partial name="_LoginPartial" />
                 <ul class="nav navbar-nav navbar-right">
                     <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                    @*<li><a asp-controller="Pie" asp-action="List">Pies</a></li>*@
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#specials">Our Specials</a></li>
+                    @*<li><a href="#about">About</a></li>
+                        <li><a href="#specials">Our Specials</a></li>*@
+                    <li><a asp-controller="Pie" asp-action="List">Pie Store</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                     @await Component.InvokeAsync("ShoppingCartSummery")
                 </ul>
@@ -54,14 +61,9 @@
 
         </div>
     </nav>
-    <div class="container-fluid" style="padding-left:0px;padding-right:0px;min-height:100vh;">
-        <div class="row">
-            @*<div class="col-md-3">
-                    <p class="lead">
-                        <img class="img-responsive" alt="Bethany's Pie Shop'" src="~/Images/bethanylogo.png" />
-                    </p>
-                </div>*@
-            <div class="col-md-12">
+    <div class="col-md-12">
+        <div class="row" style="padding:0px;">
+            <div class="col-md-12" style="padding-right:0px;padding-left:0px;">
                 @RenderBody()
             </div>
         </div>
@@ -73,6 +75,9 @@
     </footer>
 
     @RenderSection("Scripts", required: false)
+
+    
+
 </body>
 
 </html>

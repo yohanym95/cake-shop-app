@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using shopapp.Data;
+using shopapp.Enums;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace shopapp.Models
 {
+   // [Authorize(Roles = "Basic")]
     public class ShoppingCart
     {
         private readonly AppDbContext _appDbContext;

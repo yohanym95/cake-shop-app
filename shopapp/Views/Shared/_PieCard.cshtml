@@ -1,6 +1,6 @@
 ﻿@model Pie
 <div class="col-sm-4 col-lg-4 col-md-4">
-    <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">
+    <a asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId" style="text-decoration:none;">
         <div class="thumbnail" asp-controller="Pie" asp-action="Details" asp-route-id="@Model.PieId">
             @if (Model.ImageThumbnailUrl != null)
             {

@@ -3,7 +3,10 @@
 
 <li>
     <a asp-controller="ShoppingCart" asp-action="Index">
+        @*Pies Cart*@
+
         <span class="glyphicon glyphicon-shopping-cart"></span>
+
         @if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
         {
             <span id="cart-status">

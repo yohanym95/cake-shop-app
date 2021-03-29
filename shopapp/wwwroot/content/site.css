@@ -12,7 +12,7 @@ body{
 }
 .banner {
     position: relative;
-    width: 100%;
+    width: 100% auto;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -119,13 +119,24 @@ footer {
     margin: 50px 0px;    
 }
 
-/*.navbar {
-    background-image: none;
+.nav{
+    width:100%;
+    display:block !important;
 }
-*/
-.navbar-inverse {
-    background-color: #e6982c;
-    border-color: #e6982c;
+
+nav.sticky{
+    background: #111;
+    padding : 10px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/*.navbar-inverse {
+    
+    z-index: 10000;
+}*/
+
+.nav.nav-change {
+    background-color: transparent !important;
 }
 
 .nav.navbar-nav.navbar-right li a {
@@ -210,4 +221,7 @@ footer {
 }
 footer {
     margin:0;
+}
+.padding-change{
+    padding:0px;
 }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace shopapp.Controllers
 {
-    [Authorize(Roles ="Basic")]
+    [Authorize(Roles = "Basic")]
     public class ShoppingCartController : Controller
     {
         private readonly IPieRepository _pieRepository;
@@ -39,10 +39,7 @@ namespace shopapp.Controllers
 
         public RedirectToActionResult AddToShoppingCart(int pieId)
         {
-            Debug.WriteLine(pieId);
             var selectedPie = _pieRepository.AllPies.FirstOrDefault(p => p.PieId == pieId);
-            Debug.WriteLine(selectedPie.PieId.ToString());
-            Debug.WriteLine(selectedPie.Category.ToString());
             if (selectedPie != null)
             {
                 _shoppingCart.AddToCart(selectedPie, 1);
