@@ -2,7 +2,7 @@
 
 <section class="banner container-fluid" id="banner">
     <div class="content container">
-        <h2>Always Choose Good</h2>
+        <h2 class="animate__animated animate__bounce">Always Choose Good</h2>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -12,15 +12,16 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <a class="btn-title btn-menu" style="text-decoration:none;" asp-controller="Pie" asp-action="List">Our Pie Store</a>
+        <a class="btn-title btn-menu animate__animated animate__bounce" style="text-decoration:none;" asp-controller="Pie" asp-action="List">Our Pie Store</a>
     </div>
 </section>
 
-<div class="container">
+<div class="container" data-aos="fade-up"
+     data-aos-anchor-placement="top-center">
     <div class="container" id="about" style="margin-top:10px;margin-bottom:10px;">
         <h2 class="col-md-12 title"><span>A</span>bout US</h2>
         <div class="row col-md-12">
-            <div class="col-md-6 img-box" data-aos="fade-down">
+            <div class="col-md-6 img-box">
                 <img src="~/Images/cake-aboutus.jpg" alt="" />
             </div>
             <div class="col-md-6">

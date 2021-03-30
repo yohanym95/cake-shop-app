@@ -3,15 +3,6 @@
 
 // Write your JavaScript code.
 
-$(document).ready(function () {
-    //$('#searchBox').autocomplete({
-    //    source: '/api/pie/search'
-    //});
-    AOS.init();
-});
-
-
-$(document).addEventListener("scroll", function () {
-    const header = document.querySelector(".navsticky");
-    header.classList.toggle("sticky", window.scrollY > 0);
-});
+AOS.init(
+    { duration: 1200 }
+);

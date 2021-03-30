@@ -119,21 +119,6 @@ footer {
     margin: 50px 0px;    
 }
 
-.nav{
-    width:100%;
-    display:block !important;
-}
-
-.navsticky.sticky{
-    background: #111;
-    padding : 10px 100px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-/*.navbar-inverse {
-    
-    z-index: 10000;
-}*/
 
 .nav.navbar-nav.navbar-right li a {
     color: white;
@@ -203,6 +188,9 @@ footer {
 
 .pieList{
     padding-top : 60px;
+}
+.pie-box :hover {
+    transform: scale(1.5);
 }
 .categoryTitle{
     padding: 30px 5px 15px 0px;
