@@ -2,24 +2,26 @@
 
 @*@await Component.InvokeAsync("CategoryButtons")*@
 
-<div class="row col-md-7">
-    <div class="col-md-4" style="margin-left:10px;">
-        <h1>@Model.CurrentCategory</h1>
-    </div>
-    <div class="col-md-3 text-center">
-        <div class="addToCart">
-            <p class="button" style="padding-top:25px;">
-                <a class="btn btn-primary"
-                   asp-controller="Cake"
-                   asp-action="Add">Add New Pie</a>
-            </p>
+<div class="container pieList">
+    <div class="row col-md-7">
+        <div class="col-md-4" style="margin-left:10px;">
+            <h1>@Model.CurrentCategory</h1>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="addToCart">
+                <p class="button" style="padding-top:25px;">
+                    <a class="btn btn-primary"
+                       asp-controller="Cake"
+                       asp-action="Add">Add New Pie</a>
+                </p>
+            </div>
         </div>
     </div>
-</div>
-<br />
-<div class="col-md-12" style="padding-top:10px;">
-    @foreach (var pie in Model.Pies)
-    {
-        <partial name="_EditPieCard" model="pie" />
-    }
+    <br />
+    <div class="col-md-12" style="padding-top:10px;">
+        @foreach (var pie in Model.Pies)
+        {
+            <partial name="_EditPieCard" model="pie" />
+        }
+    </div>
 </div>

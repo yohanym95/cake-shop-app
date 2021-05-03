@@ -1,67 +1,69 @@
 ﻿
 @model CakeViewModel
 
-<form id="profile-form" method="post" asp-action="Add" role="form" enctype="multipart/form-data">
-    <div class="row">
-        <div class="col-md-6">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.Name"></label>
-                <input asp-for="PieViewModel.Name" class="form-control" />
-                <span asp-validation-for="PieViewModel.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.ShortDescription"></label>
-                <textarea asp-for="PieViewModel.ShortDescription" class="form-control"> </textarea>
-                <span asp-validation-for="PieViewModel.ShortDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.LongDescription"></label>
-                <textarea asp-for="PieViewModel.LongDescription" rows="10" class="form-control"></textarea>
-                <span asp-validation-for="PieViewModel.LongDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.Price"></label>
-                <input asp-for="PieViewModel.Price" class="form-control" />
-                <span asp-validation-for="PieViewModel.Price" class="text-danger"></span>
-            </div>        
-            <div class="form-group">
-                @if (Model.Categories != null)
-                {
-                    <label asp-for="PieViewModel.CategoryId"></label>
-                    <select asp-for="PieViewModel.CategoryId" asp-items="@(new SelectList(Model.Categories.ToList(),"CategoryId","CategoryName"))" class="form-control" required>
-                        <option value="">Select the Category</option>
-                    </select>
+<div class="container pieList">
+    <form id="profile-form" method="post" asp-action="Add" role="form" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.Name"></label>
+                    <input asp-for="PieViewModel.Name" class="form-control" />
+                    <span asp-validation-for="PieViewModel.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.ShortDescription"></label>
+                    <textarea asp-for="PieViewModel.ShortDescription" class="form-control"> </textarea>
+                    <span asp-validation-for="PieViewModel.ShortDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.LongDescription"></label>
+                    <textarea asp-for="PieViewModel.LongDescription" rows="10" class="form-control"></textarea>
+                    <span asp-validation-for="PieViewModel.LongDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.Price"></label>
+                    <input asp-for="PieViewModel.Price" class="form-control" />
+                    <span asp-validation-for="PieViewModel.Price" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @if (Model.Categories != null)
+                    {
+                        <label asp-for="PieViewModel.CategoryId"></label>
+                        <select asp-for="PieViewModel.CategoryId" asp-items="@(new SelectList(Model.Categories.ToList(),"CategoryId","CategoryName"))" class="form-control" required>
+                            <option value="">Select the Category</option>
+                        </select>
 
-                }
-                <span asp-validation-for="PieViewModel.CategoryId" class="text-danger"></span>
+                    }
+                    <span asp-validation-for="PieViewModel.CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.InStock"></label>
+                    <input asp-for="PieViewModel.InStock" class="form-control" style="width:30px;" />
+                    <span asp-validation-for="PieViewModel.InStock" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.IsPieOfTheModel"></label>
+                    <input asp-for="PieViewModel.IsPieOfTheModel" class="form-control" style="width:30px;" />
+                    <span asp-validation-for="PieViewModel.IsPieOfTheModel" class="text-danger"></span>
+                </div>
+                <button id="update-profile-button" type="submit" class="btn btn-primary">Add Pie</button>
             </div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.InStock"></label>
-                <input asp-for="PieViewModel.InStock" class="form-control" style="width:30px;" />
-                <span asp-validation-for="PieViewModel.InStock" class="text-danger"></span>
+            <div class="col-md-6">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PieViewModel.PiePictureByte" style="width: 100%;"></label>
+                    <img id="profilePicture" style="width:350px;height:350px; object-fit:cover; border-radius:50px;" src="">
+                    <input type="file"
+                           accept=".png,.jpg,.jpeg,.gif,.tif"
+                           asp-for="PieViewModel.PiePictureByte"
+                           class="form-control"
+                           style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
+                           onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
+                    <span asp-validation-for="PieViewModel.PiePictureByte" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.IsPieOfTheModel"></label>
-                <input asp-for="PieViewModel.IsPieOfTheModel" class="form-control" style="width:30px;" />
-                <span asp-validation-for="PieViewModel.IsPieOfTheModel" class="text-danger"></span>
-            </div>
-            <button id="update-profile-button" type="submit" class="btn btn-primary">Add Pie</button>
-        </div>
-        <div class="col-md-6">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="PieViewModel.PiePictureByte" style="width: 100%;"></label>
-                <img id="profilePicture" style="width:350px;height:350px; object-fit:cover; border-radius:50px;" src="">
-                <input type="file"
-                       accept=".png,.jpg,.jpeg,.gif,.tif"
-                       asp-for="PieViewModel.PiePictureByte"
-                       class="form-control"
-                       style="border:0px!important;padding: 0px;padding-top: 10px;padding-bottom: 30px;"
-                       onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
-                <span asp-validation-for="PieViewModel.PiePictureByte" class="text-danger"></span>
-            </div>
-        </div>
 
-    </div>
-</form>
+        </div>
+    </form>
+</div>
