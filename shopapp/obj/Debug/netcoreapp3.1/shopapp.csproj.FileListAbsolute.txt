@@ -207,3 +207,5 @@ C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\sho
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\shopapp.genruntimeconfig.cache
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\shopapp.csprojAssemblyReference.cache
 C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ExternalLogin.cshtml.g.cs
+C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\Yohan Malshika\source\repos\shopapp\shopapp\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll

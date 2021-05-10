@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using shopapp.Data;
 using shopapp.Models;
 using shopapp.Repositories;
+using shopapp.Services;
 
 namespace shopapp
 {
@@ -37,6 +39,7 @@ namespace shopapp
             services.AddScoped<IOrderRepository, OrderRespository>();
             services.AddScoped<ICakeRepository, CakeRepository>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddHttpContextAccessor();
             services.AddSession();
             services.AddControllersWithViews();
