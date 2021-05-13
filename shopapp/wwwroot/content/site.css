@@ -186,6 +186,22 @@ footer {
         object-fit: cover;
     }
 
+.img-gallery {
+    position: relative;
+    min-height: 200px;
+    margin: 7px;
+}
+
+    .img-gallery img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
 .pieList{
     padding-top : 60px;
 }
